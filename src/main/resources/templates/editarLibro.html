@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <h2>Editar Libro:</h2>
+        <div>
+            <form th:action="@{/libro/editarLibro/}+${libro.id}" method="POST">
+
+                <p th:if="${error != null}" th:text="${error}" style="color: red;"></p>
+
+                <div class="mb-3">
+                    <label for="formGroupExampleInput" class="form-label">Titulo</label><br/>
+                    <input type="text" class="form-control" id="formGroupExampleInput" name="titulo" placeholder="Nombre del titulo" th:value="${libro.nombre}"><br/>
+                </div>
+                <div class="mb-3">
+                    <label for="formGroupExampleInput" class="form-label">Anio</label><br/>
+                    <input type="text" class="form-control" id="formGroupExampleInput" name="anio" placeholder="Anio" th:value="${libro.anio}"><br/>
+                </div>
+                <div class="mb-3">
+                    <label for="formGroupExampleInput" class="form-label">ISBN (debe ingresar un numero entre 100000000 y 1000000000)</label><br/>
+                    <input type="number" class="form-control" id="formGroupExampleInput" name="isbn" placeholder="Numero del ISBN" th:value="${libro.isbn}"><br/>
+                </div>
+                <div class="mb-3">
+                    <label for="formGroupExampleInput" class="form-label">Ejemplares</label><br/>
+                    <input type="number" class="form-control" id="formGroupExampleInput" name="ejemplares" placeholder="Numero de ejemplares" th:value="${libro.ejemplares}"><br/>
+                </div>
+                <div class="mb-3">
+                    <label for="formGroupExampleInput" class="form-label">Ejemplares Prestados</label><br/>
+                    <input type="number" class="form-control" id="formGroupExampleInput" name="ejemplaresPrestados" placeholder="Numero de ejemplares prestados" th:value="${libro.ejemplaresPrestados}"><br/>
+                </div>
+                <div class="mb-3">
+                    <label for="formGroupExampleInput" class="form-label">Ejemplares Restantes</label><br/>
+                    <input type="number" class="form-control" id="formGroupExampleInput" name="ejemplaresRestantes" placeholder="Numero de ejemplares restantes" th:value="${libro.ejemplaresRestantes}"><br/>
+                </div>
+                <div class="mb-3">
+                    <label for="formGroupExampleInput" class="form-label">Autor</label><br/>
+                    <input type="text" class="form-control" id="formGroupExampleInput" name="autor" placeholder="autor" th:value="${libro.autor.nombre}"><br/>
+                </div>
+                <div class="mb-3">
+                    <label for="formGroupExampleInput" class="form-label">Editorial</label><br/>
+                    <input type="text" class="form-control" id="formGroupExampleInput" name="editorial" placeholder="editorial" th:value="${libro.editorial.nombre}"><br/>
+                </div>
+                <div>
+                    <button type="submit" class="btn btn-primary">Cargar</button>
+                </div>
+            </form>
+        </div>
+    </body>
+</html>
